@@ -4,7 +4,7 @@ export default function Card() {
   return (
     <article className='cocktail'>
       <div className='img-container'>
-        <img src={image} />
+        <img src={image} alt='g'/>
       </div>
       <div className='cocktail-footer'>
         <h3>name</h3>

@@ -1,4 +1,5 @@
 import React from 'react';
+import APIService from './APIService';
 
 export default function Raise() {
   const [detail, setDetail] = React.useState({
@@ -111,24 +112,27 @@ export default function Raise() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log("submit")
     console.log(detail);
+    APIService.insertArticle(detail);
   }
+  
 
   function bar() {
     setCounter((counter + 1)%3);
     console.log(counter)
     console.log(form1, form2, form3);
-    if (counter == 0) {
+    if (counter === 0) {
 
       setForm1(true);
       setForm2(false);
       setForm3(false);
-    } else if (counter == 1) {
+    } else if (counter === 1) {
       
       setForm1(false);
       setForm2(true);
       setForm3(false);
-    } else if (counter == 2) {
+    } else if (counter === 2) {
       setForm1(false);
       setForm2(false);
       setForm3(true);
@@ -150,7 +154,7 @@ export default function Raise() {
         {/* form */}
         <div className='form-holder'>
           <form className='form' onSubmit={handleSubmit}>
-            {form1 && 
+            {form1 && (
               <React.Fragment>
                 <div className='form-question-1'>
                   WHICH TYPE OF QUERY YOU WANT TO RAISE?
@@ -158,8 +162,8 @@ export default function Raise() {
                 <div className='form-lost-button'>LOST</div>
                 <div className='form-found-button'>FOUND</div>
               </React.Fragment>
-            }
-            {form2 && 
+            )}
+            {form2 && (
               <React.Fragment>
                 <div className='form-control'>
                   <label htmlFor='name'></label>
@@ -206,8 +210,8 @@ export default function Raise() {
                   />
                 </div>
               </React.Fragment>
-            }
-            {form3 && 
+            )}
+            {form3 && (
               <React.Fragment>
                 <div className='form-control'>
                   <label htmlFor='description'></label>
@@ -218,9 +222,12 @@ export default function Raise() {
                     onChange={handleChange}
                     placeholder='Description'
                   />
+                  <button type='submit' className='submit'>
+                    Submit
+                  </button>
                 </div>
               </React.Fragment>
-            }
+            )}
           </form>
         </div>
         <div className='form-button-holder'>

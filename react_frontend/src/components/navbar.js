@@ -38,7 +38,7 @@ export default function Navbar()
             <Link to='/found'>Found</Link>
           </li>
           <li>
-            <Link to='/rasie'>Raise</Link>
+            <Link to='/raise'>Raise</Link>
           </li>
           <li>
             <Link to='/about'>About</Link>
